@@ -3,9 +3,6 @@
 #include "Color.h"
 using namespace std;
 
-    float red;
-    float green;
-    float blue;
 
     Color::Color(){
         red = 0.0f;
