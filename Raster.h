@@ -23,7 +23,7 @@ class Raster{
         void drawLine_DDA_Interpolated(float x1,float y1, float x2, float y2, Color color1, Color color2);
         void DrawTriangle2D_DotProduct(Triangle2D triangle);
         bool inside(Triangle2D triangle,int x, int y);
-        void drawTriangle_Barycentric(Triangle2D t);
+        void drawTriangle_Barycentric(Triangle2D T);
 
 };
 

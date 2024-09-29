@@ -311,25 +311,25 @@ bool Raster::inside(Triangle2D triangle, int x, int y){
     }
 }
 
-void Raster::drawTriangle_Barycentric(Triangle2D t){
-    float minx=fmin(t.v1.x,t.v2.x);
-    minx=fmin(minx,t.v3.x);
-    float maxx=fmax(t.v1.x,t.v2.x);
-    maxx=fmax(maxx,t.v3.x);
-    float miny=fmin(t.v1.y,t.v2.y);
-    miny=fmin(miny,t.v3.y);
-    float maxy=fmax(t.v1.y,t.v2.y);
-    maxy=fmax(maxy,t.v3.y);
+void Raster::drawTriangle_Barycentric(Triangle2D T){
+    float minx=fmin(T.v1.x,T.v2.x);
+    minx=fmin(minx,T.v3.x);
+    float maxx=fmax(T.v1.x,T.v2.x);
+    maxx=fmax(maxx,T.v3.x);
+    float miny=fmin(T.v1.y,T.v2.y);
+    miny=fmin(miny,T.v3.y);
+    float maxy=fmax(T.v1.y,T.v2.y);
+    maxy=fmax(maxy,T.v3.y);
     float lambda1;
     float lambda2;
     float lambda3;
 
     for(int x=minx; x<=maxx; x++){
         for(int y=miny;y<=maxy;y++){
-            t.calculateBarycentricCoordinates(Vector2(x,y),lambda1,lambda2,lambda3);
+            T.calculateBarycentricCoordinates(Vector2(x,y),lambda1,lambda2,lambda3);
             if(lambda1>=0&&lambda2>=0&&lambda3>=0&&x>=0&&x<width&&y>=0&&y<width){
                 // Color mycolor(lambda1,lambda2,lambda3);
-                Color myColor= (t.c1*lambda1)+(t.c2*lambda2)+(t.c3*lambda3);
+                Color myColor= (T.c1*lambda1)+(T.c2*lambda2)+(T.c3*lambda3);
                 setColorPixel(x,y, myColor);
             }
         }
